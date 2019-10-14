@@ -9,13 +9,14 @@ import com.example.curso.boot.demomvc.dao.DepartamentoDao;
 import com.example.curso.boot.demomvc.domain.Departamento;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author rhuan.silva
  */
-
+@Service
 public class DepartamentoServiceImpl implements DepartamentoService{
     @Autowired
     private DepartamentoDao dao;
@@ -48,6 +49,15 @@ public class DepartamentoServiceImpl implements DepartamentoService{
     @Override
     public List<Departamento> buscarTodos() {
         return dao.findAll();
+    }
+
+    @Override
+    public boolean departamentoTemCargos(Long id) {
+        if(buscarPorId(id).getCargos().isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
     }
     
 }
