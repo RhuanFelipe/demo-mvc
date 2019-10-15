@@ -12,7 +12,7 @@ public class Cargo extends AbstractEntity<Long>{
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "id_departamento_fk")
+    @JoinColumn(name = "departamento_id_fk")
     private Departamento departamento;
 
     @OneToMany(mappedBy = "cargo")
