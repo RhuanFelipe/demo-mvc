@@ -47,7 +47,7 @@ public class CargoController {
         return departamentoService.buscarTodos();
     }
     
-      @GetMapping("/editar/{id}")
+    @GetMapping("/editar/{id}")
     public String preEditar(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("cargo", cargoService.buscarPorId(id));
         return "/cargo/cadastro";
@@ -66,7 +66,7 @@ public class CargoController {
             model.addAttribute("fail", "Cargo não removido. Possui Funcionário(s) Vinculado(s).");
         } else {
             cargoService.excluir(id);
-            model.addAttribute("success", "Cargo excluido com sucesso!");
+            model.addAttribute("success", "Cargo removido com sucesso!");
         }
 
         return listar(model);

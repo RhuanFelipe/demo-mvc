@@ -56,7 +56,7 @@ public class DepartamentoController {
             model.addAttribute("fail", "Departamento não removido. Possui Cargo(s) Vinculado(s).");
         } else {
             service.excluir(id);
-            model.addAttribute("success", "Departamento excluido com sucesso!");
+            model.addAttribute("success", "Departamento removido com sucesso!");
         }
 
         return listar(model);
