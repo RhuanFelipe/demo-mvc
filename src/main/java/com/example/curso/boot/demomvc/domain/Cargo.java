@@ -1,16 +1,21 @@
 package com.example.curso.boot.demomvc.domain;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="CARGOS")
-public class Cargo extends AbstractEntity<Long>{
+@Table(name = "CARGOS")
+public class Cargo extends AbstractEntity<Long> {
 
-    @Column(name="nome", nullable = false, unique = true, length = 60)
+    @NotBlank(message = "O nome do cargo é obrigatório.")
+    @Size(max = 60, message = "O nome do cargo deve conter no máximo 60 caracteres.")
+    @Column(name = "nome", nullable = false, unique = true, length = 60)
     private String nome;
 
+    @NotNull(message = "Selecione o departamento relativo ao cargo.")
     @ManyToOne
     @JoinColumn(name = "departamento_id_fk")
     private Departamento departamento;
