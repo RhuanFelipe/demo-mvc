@@ -1,4 +1,4 @@
-package com.mballem.curso.boot.web.conversor;
+package com.example.curso.boot.demomvc.web.conversor;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
